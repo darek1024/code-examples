@@ -1,7 +1,9 @@
 package pl.dworld.done.tasks.web;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -50,6 +52,7 @@ class TasksController {
     }
 
     @Data
+    @Builder
     static class CreateTaskCommand {
         String title;
         LocalDate dueDate;
