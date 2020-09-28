@@ -9,4 +9,8 @@ import java.util.List;
 public interface TasksJpaRepository extends JpaRepository<Task, Long> {
 
     List<Task> findByPriorityIsTrueOrDueDateLessThanEqual(LocalDate dueDate);
+
+    List<Task> findByProjectIsNull();
+
+    List<Task> findByProjectEquals(Long projectId);
 }

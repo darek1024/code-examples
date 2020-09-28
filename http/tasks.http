@@ -2,8 +2,8 @@ POST http://localhost:8080/tasks
 Content-Type: application/json
 
 {
-  "title": "Dokonczyc blogposta o Dockerze",
-  "dueDate": "2020-09-15"
+  "title": "Ustalenie wymaganych parametrów",
+  "projectId": "1"
 }
 
 
@@ -14,3 +14,9 @@ GET http://localhost:8080/tasks
 
 ###
 GET http://localhost:8080/projects/priority
+
+###
+POST http://localhost:8080/projects?name=Zakup nowego laptopta
+
+###
+GET http://localhost:8080/projects/

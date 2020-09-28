@@ -9,7 +9,6 @@ import pl.dworld.done.tasks.application.TasksService;
 import pl.dworld.done.tasks.domain.Task;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Slf4j
@@ -27,13 +26,25 @@ class TasksController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public void createTask(@RequestBody CreateTaskCommand command) {
-        tasksService.addTask(command.title, command.dueDate);
+        tasksService.addTask(
+            command.title,
+            command.dueDate,
+            command.projectId,
+            command.priority
+        );
+    }
+
+    @GetMapping(params = "project")
+    public List<Task> getByProjectId(@RequestParam("project") Long projectId) {
+        return tasksService.getByProjectId(projectId);
     }
 
     @Data
     static class CreateTaskCommand {
         String title;
         LocalDate dueDate;
+        Long projectId;
+        Boolean priority;
     }
 
 }
