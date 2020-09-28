@@ -18,11 +18,6 @@ import java.util.List;
 class TasksController {
     private final TasksService tasksService;
 
-    @GetMapping
-    public List<Task> getTasks() {
-        return tasksService.getAll();
-    }
-
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public void createTask(@RequestBody CreateTaskCommand command) {
@@ -32,6 +27,21 @@ class TasksController {
             command.projectId,
             command.priority
         );
+    }
+
+    @GetMapping
+    public List<Task> getAll() {
+        return tasksService.getAll();
+    }
+
+    @GetMapping("/inbox")
+    public List<Task> getInbox() {
+        return tasksService.getInbox();
+    }
+
+    @GetMapping("/priority")
+    public List<Task> getPriority() {
+        return tasksService.getPriority();
     }
 
     @GetMapping(params = "project")

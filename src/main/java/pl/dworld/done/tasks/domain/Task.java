@@ -1,7 +1,5 @@
 package pl.dworld.done.tasks.domain;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -38,8 +36,4 @@ public class Task {
     @CreatedDate
     private LocalDateTime createdAt;
 
-    public Task(String title, LocalDate dueDate) {
-        this.title = title;
-        this.dueDate = dueDate;
-    }
 }

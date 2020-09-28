@@ -16,18 +16,7 @@ import java.util.Optional;
 @RequestMapping("/projects")
 @AllArgsConstructor
 class ProjectsController {
-    private final TasksService tasksService;
     private final ProjectsService projectsService;
-
-    @GetMapping("/inbox")
-    public List<Task> getInbox() {
-        return tasksService.getInbox();
-    }
-
-    @GetMapping("/priority")
-    public List<Task> getPriority() {
-        return tasksService.getPriority();
-    }
 
     @PostMapping
     public Project addProject(@RequestParam String name) {
